@@ -18,7 +18,16 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+const options = {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: "Project Management API Docs",
+  customfavIcon: "/assets/favicon.ico",
+  swaggerOptions: {
+      persistAuthorization: true,
+  }
+};
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, options));
 
 // Routes
 app.use('/api/users', userRoutes);

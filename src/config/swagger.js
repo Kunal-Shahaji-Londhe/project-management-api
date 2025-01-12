@@ -3,7 +3,7 @@ import dotenv from 'dotenv'
 dotenv.config();
 
 
-console.log('hey: ', process.env.RENDER_URL)
+
 const options = {
     definition: {
         openapi: '3.0.0',
