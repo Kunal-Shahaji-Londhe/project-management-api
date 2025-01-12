@@ -40,6 +40,9 @@ app.get('/', (req, res) => {
   console.log("Hey i still got it.")
 });
 
+console.log('Swagger specs loaded:', !!specs);
+console.log('API docs available at:', `${process.env.NODE_ENV === 'production' ? 'https://project-management-api-4vb4.onrender.com' : 'http://localhost:3000'}/api-docs`);
+
 // Sync database and start server
 
 const startServer = async () => {
