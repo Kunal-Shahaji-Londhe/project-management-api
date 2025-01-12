@@ -2,6 +2,8 @@ import swaggerJsdoc from 'swagger-jsdoc';
 import dotenv from 'dotenv'
 dotenv.config();
 
+
+console.log('hey: ', process.env.RENDER_URL)
 const options = {
     definition: {
         openapi: '3.0.0',
@@ -13,13 +15,12 @@ const options = {
         servers: [
             {
                 url: process.env.NODE_ENV === 'production'
-                    ? 'https://project-management-api-4vb4.onrender.com/'  // Replace with your Render URL
+                    ? "https://project-management-api-4vb4.onrender.com/"
                     : 'http://localhost:3000',
                 description: process.env.NODE_ENV === 'production' ? 'Production server' : 'Development server',
-
             },
         ],
-    components: {
+        components: {
             securitySchemes: {
                 bearerAuth: {
                     type: 'http',
@@ -30,11 +31,11 @@ const options = {
         },
         security: [
             {
-                bearerAuth: [], // Apply bearerAuth globally
+                bearerAuth: [],
             },
         ],
     },
-    apis: ['./routes/*.js'], // Path to the API routes
+    apis: ['./routes/*.js'],
 };
 
 export const specs = swaggerJsdoc(options);
