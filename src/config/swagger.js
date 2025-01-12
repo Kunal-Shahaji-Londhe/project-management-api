@@ -19,7 +19,6 @@ const options = {
 
             },
         ],
-    /* }, */
     components: {
             securitySchemes: {
                 bearerAuth: {
