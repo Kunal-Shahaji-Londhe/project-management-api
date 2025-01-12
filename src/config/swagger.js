@@ -19,9 +19,7 @@ const options = {
         },
         servers: [
             {
-                url: process.env.NODE_ENV === 'production'
-                    ? "https://project-management-api-4vb4.onrender.com"
-                    : 'http://localhost:3000',
+                url: process.env.API_URL || 'http://localhost:3000',
                 description: process.env.NODE_ENV === 'production' ? 'Production server' : 'Development server',
             },
         ],
